@@ -39,7 +39,7 @@ Sphere-Meshes: Shape Approximation using Spherical Quadric Error Metrics
 Jean-Marc Thiery, Emilie Guy and Tamy Boubekeur
 ACM Transaction on Graphics (Proc. SIGGRAPH Asia 2013), 32(6), Art. 178
 
-# CREDITS and LICENCE
+## CREDITS and LICENCE
 
      SQEM - Spherical Quadric Error Metric
 
