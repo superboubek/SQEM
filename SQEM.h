@@ -85,6 +85,13 @@ class SQEM {
                  double b1 , double b2 , double b3 , double b4 ,
                  double c )
     {
+        init_sqem(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, b1, b2, b3, b4, c);
+    }
+    
+    void init_sqem(double a1 , double a2 , double a3 , double a4 , double a5 , double a6 , double a7 , double a8 , double a9 , double a10 ,
+                 double b1 , double b2 , double b3 , double b4 ,
+                 double c )
+    {
         SQEM_A_compr[0] = a1;
         SQEM_A_compr[1] = a2;
         SQEM_A_compr[2] = a3;
@@ -97,10 +104,11 @@ class SQEM {
         SQEM_A_compr[9] = a10;
         SQEM_b_compr[0] = b1;
         SQEM_b_compr[1] = b2;
-        SQEM_b_compr[3] = b3;
+        SQEM_b_compr[2] = b3;
         SQEM_b_compr[3] = b4;
-        SQEM_c_compr = c;
-    }
+        SQEM_c_compr = c;        
+    }  
+
 
     inline
     double SQEM_A_determinant_with_column0_replaced( double x , double y , double z , double w ) const
@@ -230,7 +238,7 @@ class SQEM {
 
 public:
     inline 
-    SQEM() {}
+    SQEM() { init_sqem(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0); }
 
     inline 
     void setZero()  {
@@ -250,9 +258,9 @@ public:
     inline 
     SQEM( const point_t & p , const point_t & n ) { setFromPlan(p,n); }
 
-    template< class point_t >
+    template< class point_t, class vect_t >
     inline 
-    void setFromPlan( const point_t & p , const point_t & n ) {
+    void setFromPlan( const point_t & p , const vect_t & n ) {
         double dot_product = p[0]*n[0] + p[1]*n[1] + p[2]*n[2];
 
         SQEM_A_compr[0] = 2.0*n[0]*n[0];
